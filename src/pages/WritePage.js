@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const WritePage = () => {
   return (
     <div>
-      app
+      글쓰기
     </div>
   );
 };
 
-export default App;
+export default WritePage;
