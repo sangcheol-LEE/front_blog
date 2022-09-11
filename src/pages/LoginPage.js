@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react';
+import AuthTemplate from '../components/auth/AuthTemplate';
+import AuthForm from '../components/auth/AuthForm';
 
-export default class LoginPage extends Component {
-  render() {
-    return (
-      <div>
-        로그인
-      </div>
-    )
-  }
-}
+const LoginPage = () => {
+  return (
+    <AuthTemplate>
+      <AuthForm />
+    </AuthTemplate>
+  );
+};
+
+export default LoginPage;
