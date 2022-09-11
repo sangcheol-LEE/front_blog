@@ -50,17 +50,32 @@ const ButtonWithMarginTop = styled(Button)`
   margin-top:1rem;
 `;
 
-const AuthForm = () => {
+const textMap = {
+  login : 'LOG IN',
+  register : "RESISTER"
+};
+
+const AuthForm = ({type}) => {
+  const text = textMap[type];
   return (
     <AuthFormBlock>
-      <h3>Log In</h3>
+      <h3>{text}</h3>
       <form>
         <StyledInput autoComplete="userName" name="username" placeholder="ID"/>
         <StyledInput autoComplete="newPassword" name="password" placeholder="PASSWORD" type="password"/>
-        <ButtonWithMarginTop cyan fullWidth>로그인</ButtonWithMarginTop>
+        {type === "register" && (
+          <StyledInput autoComplete="newPassword" name="passwordConfirm" placeholder="PASSWORD CHECK" type="password"/>
+        )}
+        <ButtonWithMarginTop cyan fullWidth>{text}</ButtonWithMarginTop>
       </form>
       <Footer>
-        <Link to="/register">회원가입</Link>
+        {type === 'login' 
+        ? (
+          <Link to="/register">Register</Link>
+          ) 
+        : (
+          <Link to="/login">Log in</Link>
+        )}
       </Footer>
     </AuthFormBlock>
   );
