@@ -36,15 +36,18 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case CHANGE_FIELD :
+      console.log("redux",action.form)
+      const {form, key, value} = action.form;
       return {
-        ...state,
-        [action.form]: {
-          ...state.register,
-          username : action.key.username,
-          password : action.key.password,
-          passwordConfirm : action.key.passwordConfirm
-        }
+        ...state[form],
+          [key] : value
       }
+    case INITIALIZE_FORM :
+      return {
+         ...state,
+         [action.form] : initialState[action.form]
+        }
+
     default :
       return state
   }

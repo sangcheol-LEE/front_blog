@@ -55,16 +55,17 @@ const textMap = {
   register : "RESISTER"
 };
 
-const AuthForm = ({type}) => {
+const AuthForm = ({type, form, handleChange, handleSubmit}) => {
+  console.log("what",form)
   const text = textMap[type];
   return (
     <AuthFormBlock>
       <h3>{text}</h3>
-      <form>
-        <StyledInput autoComplete="userName" name="username" placeholder="ID"/>
-        <StyledInput autoComplete="newPassword" name="password" placeholder="PASSWORD" type="password"/>
+      <form onSubmit={handleSubmit}>
+        <StyledInput autoComplete="userName" name="username" placeholder="ID" onChange={handleChange} value={form?.username || ""}/>
+        <StyledInput autoComplete="newPassword" name="password" placeholder="PASSWORD" type="password" onChange={handleChange} value={form?.password  || ""} />
         {type === "register" && (
-          <StyledInput autoComplete="newPassword" name="passwordConfirm" placeholder="PASSWORD CHECK" type="password"/>
+          <StyledInput autoComplete="newPassword" name="passwordConfirm" placeholder="PASSWORD CHECK" type="password" onChange={handleChange} value={form?.passwordConfirm  || ""}/>
         )}
         <ButtonWithMarginTop cyan fullWidth>{text}</ButtonWithMarginTop>
       </form>
