@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useMemo} from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/palette';
 import Button from '../Button';
@@ -57,6 +57,7 @@ const textMap = {
 
 const AuthForm = ({type, form, handleChange, handleSubmit}) => {
   console.log("what",form)
+
 
   const text = textMap[type];
   return (

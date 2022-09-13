@@ -12,8 +12,9 @@ const LoginForm = () => {
     const {value, name} = e.target;
     dispatch(
       changeField({
+        form: "login",
         key : name,
-        value
+        value : value
       })
     )
   }
@@ -22,6 +23,7 @@ const LoginForm = () => {
     e.preventDefault()
   }
 
+  console.log("form", form)
   return (
     <AuthForm 
       type="login"
