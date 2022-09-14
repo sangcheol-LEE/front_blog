@@ -36,10 +36,13 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case CHANGE_FIELD :
-      console.log("kind of",action)
       return ({
-            ...state,
-        })
+        ...state,
+        [action.form]: {
+          ...state[action.form],
+          [action.key] : action.value
+        }
+      })
     default :
       return state
   }
