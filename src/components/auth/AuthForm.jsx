@@ -71,10 +71,10 @@ const AuthForm = ({type, form, handleChange, handleSubmit}) => {
         <ButtonWithMarginTop cyan fullWidth>{text}</ButtonWithMarginTop>
       </form>
       <Footer>
-        {type === 'login' 
+        {type === 'login'
         ? (
           <Link to="/register">Register</Link>
-          ) 
+          )
         : (
           <Link to="/login">Log in</Link>
         )}
